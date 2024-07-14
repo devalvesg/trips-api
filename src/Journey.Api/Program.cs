@@ -25,6 +25,12 @@ builder.Services.AddTransient<CompleteActivityUseCase>();
 
 builder.Services.AddMvc(config => config.Filters.Add(typeof(ExceptionFilter)));
 
+builder.Services.Configure<RouteOptions>(options =>
+{
+    options.LowercaseUrls = true;
+    options.LowercaseQueryStrings = true;
+});
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
